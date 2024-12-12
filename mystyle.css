@@ -1,0 +1,57 @@
+
+.class-p{
+    color: green;
+}
+
+.id-p {
+    color: black;
+}
+
+input:focus {
+    border-color: greenyellow; 
+    outline: none;
+    background-color: lightgreen; 
+}
+
+textarea:focus {
+    border-color: greenyellow; 
+    outline: none;
+    background-color: lightgreen;
+}
+
+button:focus {
+    border-color: greenyellow; 
+    outline: none;
+    background-color: lightgreen;
+}
+
+select:focus {
+    border-color: greenyellow; 
+    outline: none;
+    background-color: lightgreen;
+}
+
+button:hover {
+    outline: gray 10px;
+    background-color: lavender;
+}
+
+input:hover {
+    outline: gray 10px;
+    background-color:lavender;
+}
+
+select:hover {
+    outline: gray 10px;
+    background-color:lavender;
+}
+
+textarea:hover {
+    outline: gray 10px;
+    background-color:lavender;
+}
+
+body {
+    background-color :rgb(230, 252, 255);
+    display: flexbox;
+}
