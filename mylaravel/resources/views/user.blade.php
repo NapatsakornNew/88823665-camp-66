@@ -57,7 +57,7 @@
                                                             <a href="{{ url('/user/'.$user->id) }}">
                                                             <button class="btn btn-warning"> Edit </button>
                                                             </a>
-                                                            <form action="{{ url('user') }}" method="post" style="display:inline">
+                                                            <form action="{{ url('user') }}" onsubmit="clickme(event)" method="post" style="display:inline">
                                                                 @csrf
                                                                 @method('delete')
                                                                 <input type="hidden" name="id" value="{{$user->id}}">
@@ -93,4 +93,27 @@
             @include('components.footer')
         </div>
     </div>
+@endsection
+
+@section('scripts')
+<script>
+    function clickme(event) {
+        event.preventDefault();
+        Swal.fire({
+            title: 'Are you sure',
+            text: 'delete it or not?',
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, delete it!'
+        }).then((result) => {
+        if (result.isConfirmed) {
+            event.target.submit(); // ให้ฟอร์มส่งข้อมูลเมื่อกดยืนยัน
+        }
+    });
+}
+    $(document).ready(function(){
+    });
+</script>
 @endsection
