@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 
 use App\Models\User;
 
+
 class UserController extends Controller
 {
     function index(){
@@ -35,5 +36,3 @@ class UserController extends Controller
         return redirect('/users');
     }
 }
-
-

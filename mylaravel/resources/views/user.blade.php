@@ -1,3 +1,4 @@
+
 @extends('layouts.default')
 
 @section('content')
@@ -98,22 +99,20 @@
 @section('scripts')
 <script>
     function clickme(event) {
-        event.preventDefault();
-        Swal.fire({
-            title: 'Are you sure',
-            text: 'delete it or not?',
-            icon: 'warning',
-            showCancelButton: true,
-            confirmButtonColor: '#3085d6',
-            cancelButtonColor: '#d33',
-            confirmButtonText: 'Yes, delete it!'
-        }).then((result) => {
+    event.preventDefault(); // ป้องกันการส่งฟอร์มทันที
+    Swal.fire({
+        title: 'Are you sure?',
+        text: 'Do you really want to delete this user?',
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Yes, delete it!'
+    }).then((result) => {
         if (result.isConfirmed) {
-            event.target.submit(); // ให้ฟอร์มส่งข้อมูลเมื่อกดยืนยัน
+            event.target.closest('form').submit(); // ส่งฟอร์ม
         }
     });
 }
-    $(document).ready(function(){
-    });
 </script>
 @endsection
