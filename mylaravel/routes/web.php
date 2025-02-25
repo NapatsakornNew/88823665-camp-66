@@ -7,6 +7,7 @@ use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ProductController;
+use App\Http\Middleware\CheckLogin;
 
 Route::get('/product', [ProductController::class, '']);
 
@@ -49,5 +50,12 @@ Route::post('/mycontroller/{id?}',
 
 Route::get('/hello{/id?}',
     function ($val =""){
-    return "<h1>Hello World! $val</h1>";
-});
+    return "<h1>Hello World! $val</h1>";});
+
+    Route::get('/product',
+    [ProductController::class,'index'])
+    ->middleware([CheckLogin::class]);
+
+    Route::post('/product',
+    [ProductController::class,'store'])
+    ->middleware([CheckLogin::class]);
